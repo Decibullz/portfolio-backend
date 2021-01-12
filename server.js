@@ -52,6 +52,4 @@ app.post('/send', (req, res, next)=>{
 
 app.use(cors())
 app.use(express.json())
-app.listen(port, function(){
-    console.log(`Express is running on port: ${port}`)
-})
+app.listen(port, ()=> console.log(`up and running on port ${port}`))
