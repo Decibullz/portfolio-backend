@@ -4,7 +4,6 @@ const nodemailer = require('nodemailer')
 const port = process.env.PORT || 3000
 
 require('dotenv').config()
-require('./config/database')
 
 const app = express()
 
@@ -53,4 +52,6 @@ app.post('/send', (req, res, next)=>{
 
 app.use(cors())
 app.use(express.json())
-app.listen(port)
+app.listen(port, function(){
+    console.log(`Express is running on port: ${port}`)
+})
