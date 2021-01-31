@@ -53,7 +53,7 @@ app.post('/send', (req, res, next)=>{
 app.post('/verosblaf', (req, res, next)=>{
     let mail = {
         from: `${req.body.emailState.email}`,
-        to: process.env.EMAIL, 
+        to: 'codyjsnell@yahoo.com', 
         subject: `Message From Portfolio: ${req.body.emailState.email}`,
         text: `${req.body.emailState.email} says, ${req.body.message.message}`
     }
