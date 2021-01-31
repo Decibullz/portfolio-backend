@@ -50,6 +50,28 @@ app.post('/send', (req, res, next)=>{
 })
 
 
+app.post('/verosblaf', (req, res, next)=>{
+    let mail = {
+        from: `${req.body.emailState.email}`,
+        to: process.env.EMAIL, 
+        subject: `Message From Portfolio: ${req.body.emailState.email}`,
+        text: `${req.body.emailState.email} says, ${req.body.message.message}`
+    }
+    transporter.sendMail(mail, (err, data) =>{
+        if (err){
+            res.json({
+                status:'fail'
+            })
+        } else {
+            res.json({
+                status: 'success'
+            })
+        }
+    })
+})
+
+
+
 app.use(cors())
 app.use(express.json())
 app.listen(port, ()=> console.log(`up and running on port ${port}`))
