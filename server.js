@@ -29,6 +29,8 @@ transporter.verify(function(error, success){
     }
 })
 
+
+// Personal portfolio
 app.post('/send', (req, res, next)=>{
     let mail = {
         from: `${req.body.emailState.email}`,
@@ -50,11 +52,12 @@ app.post('/send', (req, res, next)=>{
 })
 
 
+// Veronicas lost and found
 app.post('/verosblaf', (req, res, next)=>{
     let mail = {
         from: `${req.body.emailState.email}`,
-        to: 'codyjsnell@yahoo.com', 
-        subject: `Message From Portfolio: ${req.body.emailState.email}`,
+        to: 'vsnell@bethany-living.com', 
+        subject: `Message from lost and found: ${req.body.emailState.email}`,
         text: `${req.body.emailState.email} says, ${req.body.message.message}`
     }
     transporter.sendMail(mail, (err, data) =>{
