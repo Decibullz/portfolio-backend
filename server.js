@@ -74,7 +74,7 @@ app.post('/verosblaf', (req, res, next) => {
 app.post('/kingdomlinekennels', (req, res, next) => {
   let mail = {
     from: `${req.body.emailState.email}`,
-    to: process.env.EMAIL,
+    to: 'codyjsnell93@gmail.com',
     subject: `Message From Kingdomlinekennels.com: ${req.body.emailState.email}`,
     text: `${req.body.emailState.email} says, ${req.body.message.message}`,
   }
