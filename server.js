@@ -11,12 +11,14 @@ app.use(express.json())
 app.use(cors())
 
 const transporter = nodemailer.createTransport({
-  host: process.env.SERVICE,
-  port: 465,
-  secure: true,
+  service: 'Gmail',
   auth: {
+    type: 'OAuth2',
     user: process.env.EMAIL,
     pass: process.env.WORD,
+    clientId: process.env.OAUTH_CLIENTID,
+    clientSecret: process.env.OAUTH_CLIENT_SECRET,
+    refreshToken: process.env.OAUTH_REFRESH_TOKEN,
   },
 })
 // verifying the connection config
